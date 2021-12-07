@@ -7,7 +7,46 @@
 		<link rel="stylesheet" href="./assets/css/main.css" />
 	</head>
 	<body>
-		<h1>body h1</h1>
-		<h2>body h2</h2>
+			<ul class="pages_header">
+				<li>header1</li>
+				<li>header2</li>
+				<li>header3</li>
+				<li>header4</li>
+				<li>
+					<a href="./pages/about/index.html">about</a>
+				</li>
+			</ul>
+			<article id="main" class="pages_main">
+				<ul class="main_aside">
+					<li>aside1</li>
+					<li>aside2</li>
+					<li>aside3</li>
+					<li>aside4</li>
+				</ul>
+				<div class="main_container">
+					<p id="domBox">container</p>
+					<button id="button" type="button">按钮</button>
+				</div>
+			</article>
+			<script>
+				let dom = document.getElementsByClassName("pages_main")[0]
+				let domBox = document.getElementById('domBox')
+				let bol = false
+				document.getElementById('button').onclick = function(){
+					bol = !bol
+					if(bol){
+						dom.classList.add('active')
+					}else{
+						dom.classList.remove('active')
+					}
+				}
+				let lis = document.getElementsByTagName('li')
+				for (var i = 0; i < lis.length; i++) {
+					let a = lis[i]
+					lis[i].onclick = () => {
+						domBox.innerHTML = a.innerHTML
+					}
+				}
+			</script>
 	</body>
 </html>
